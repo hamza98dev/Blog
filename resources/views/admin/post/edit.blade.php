@@ -28,6 +28,18 @@
                                     <label class="form-label">Post Title</label>
                                 </div>
                             </div>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text"  class="form-control" name="meta_title" value="{{ $post->meta_title }}">
+                                    <label class="form-label">Meta Title</label>
+                                </div>
+                            </div>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text"  class="form-control" name="meta_description" value="{{ $post->meta_description }}">
+                                    <label class="form-label">Meta description</label>
+                                </div>
+                            </div>
 
                             <div class="form-group">
                                 <label for="image">Featured Image</label>
