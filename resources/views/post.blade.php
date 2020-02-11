@@ -3,6 +3,9 @@
 @section('title')
 {{ $post->title }}
 @endsection
+@section('description')
+{{ $post->meta_description}}
+@endsection
 
 @push('css')
     <link href="{{ asset('assets/frontend/css/single-post/styles.css') }}" rel="stylesheet">

@@ -84,6 +84,9 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->slug = str_slug($request->title);
         $post->image = $imageName;
+        $post->meta_title = $request->meta_title;
+        $post->meta_description = $request->meta_description;
+
         $post->body = $request->body;
         if(isset($request->status))
         {

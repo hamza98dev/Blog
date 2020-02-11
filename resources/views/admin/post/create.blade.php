@@ -29,13 +29,13 @@
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" id="title" class="form-control" name="title">
+                                        <input type="text" class="form-control" name="meta_title">
                                         <label class="form-label">Meta Title</label>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" id="title" class="form-control" name="title">
+                                        <input type="text"  class="form-control" name="meta_description">
                                         <label class="form-label">Meta Description</label>
                                     </div>
                                 </div>
