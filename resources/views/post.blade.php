@@ -167,7 +167,7 @@
 
                                 <div class="blog-info">
 
-                                    <h4 class="title"><a  href="{{ route('post.details',$randompost->slug) }}"><b>{{ $randompost->title }}</b></a></h4>
+                                    <h4 class="title"><a  href="{{ route('post.details',[$randompost->categorie->name,$randompost->slug])}}"><b>{{ $randompost->title }}</b></a></h4>
 {{-- 
                                     <ul class="post-footer">
 

@@ -13,7 +13,7 @@
 
 Route::get('/', 'PostController@index')->name('home');
 Route::get('posts','PostController@index')->name('post.index');
-Route::get('post/{slug}','PostController@details')->name('post.details');
+Route::get('post/{categorie}/{slug}','PostController@details')->name('post.details');
 
 Route::get('/category/{slug}','PostController@postByCategory')->name('category.posts');
 Route::get('/tag/{slug}','PostController@postByTag')->name('tag.posts');
@@ -35,7 +35,7 @@ Route::group(['middleware'=>['auth']], function (){
 
 
 Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin','middleware'=>['auth','admin']], function (){
-    Route::get('dashboard','DashboardController@index')->name('dashboard');
+        Route::get('/dashboard','DashboardController@index')->name('dashboard');
 
     Route::get('settings','SettingsController@index')->name('settings');
     Route::put('profile-update','SettingsController@updateProfile')->name('profile.update');
@@ -61,7 +61,7 @@ Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin','middleware'
 });
 
 Route::group(['as'=>'author.','prefix'=>'author','namespace'=>'Author','middleware'=>['auth','author']], function (){
-    Route::get('dashboard','DashboardController@index')->name('dashboard');
+    Route::get('admin','adminController@index')->name('admin');
 
     Route::get('comments','CommentController@index')->name('comment.index');
     Route::delete('comments/{id}','CommentController@destroy')->name('comment.destroy');

@@ -61,7 +61,7 @@ class PostController extends Controller
             $imageName=$request->image->store('image');
         }
 //         $image = $request->file('image');
-//         $slug = str_slug($request->title);
+        // $slug = str_slug($request->title);
 //         if(isset($image))
 //         {
 // //            make unipue name for image
@@ -82,7 +82,7 @@ class PostController extends Controller
         $post = new Post();
         $post->user_id = Auth::id();
         $post->title = $request->title;
-        $post->slug = $request->title;
+        $post->slug = str_slug($request->title);
         $post->image = $imageName;
         $post->body = $request->body;
         if(isset($request->status))

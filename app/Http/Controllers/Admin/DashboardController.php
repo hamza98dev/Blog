@@ -9,18 +9,28 @@ use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use DB;
 class DashboardController extends Controller
 {
     public function index()
     {
         $posts = Post::all();
+        foreach($posts as $item){
+            $getid=DB::table('post_tag')->join('tags', 'tags.id','post_tag.tag_id')->select('tags.name')->where('post_id',$item->id)->first();
+              // array_push($item,["tag",$getid]);
+                  $item["categorie"]=$getid;
+          }
         $popular_posts = Post::withCount('comments')
                             ->withCount('favorite_to_users')
                             ->orderBy('view_count','desc')
                             ->orderBy('comments_count','desc')
                             ->orderBy('favorite_to_users_count','desc')
                             ->take(5)->get();
+                            foreach($popular_posts as $item){
+                                $getid=DB::table('post_tag')->join('tags', 'tags.id','post_tag.tag_id')->select('tags.name')->where('post_id',$item->id)->first();
+                                  // array_push($item,["tag",$getid]);
+                                      $item["categorie"]=$getid;
+                              }
         $total_pending_posts = Post::where('is_approved',false)->count();
         $all_views = Post::sum('view_count');
         $author_count = User::where('role_id',2)->count();

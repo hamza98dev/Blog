@@ -12,15 +12,15 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);z-index:999;
-        font-weight: bold
+        font-weight: bold;
         }
         .favorite_posts{
             color: blue;
         }
         .head{
-            height: 80vh;
+            height: 92vh;
             width: 100%; 
-            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);        }
+        }
             .st{
                 font-size: 17px;
             }
@@ -40,14 +40,15 @@
         {{-- <img src="{{ Storage::disk('public')->url('post/'.$last->image) }}" alt=""> --}}
      
                <div class="col-md-8 txt animated fadeIn slow">
-                <a href="{{ route('post.details',$last->slug) }}">
+                <a href="{{ route('post.details',[$last->categorie->name,$last->slug]) }}">
+
                <h2 class="" style="color:white;font-family: 'Montserrat', sans-serif;"> {{$last->title}}</h2><br>
                 </a>     
                <div class="row">
                         <div class="col-md-1 col-sm-1">
                             <img style="height:60px;width:65px" class="rounded-circle"  src="{{asset('storage/'.$publisher->image)}}" alt="photo">
                         </div>
-                        <div class="col-md-6 col-sm-4 ml-2">
+                        <div class="col-md-6 col-sm-4 ml-2 ">
                            <h4 style="color: white;font-weight: bold;font-family: 'Montserrat', sans-serif;">{{$publisher->name}}</h4>
                         <p style="color:white;font-family: 'Montserrat', sans-serif;">Published {{$last->created_at->diffForHumans()}}</p>
                         </div>
@@ -55,7 +56,7 @@
                </div>
             
        
-        <img style="object-fit:fit;height:80vh;width:100%;position:absolute;filter: brightness(50%);" src="{{asset('storage/'.$last->image)}}" alt="">
+        <img style="object-fit:fit;height:92vh;width:100%;position:absolute;filter: brightness(25%);" src="{{asset('storage/'.$last->image)}}" alt="">
         {{-- {{ Storage::disk('public')->url('post/'.$post->image) }} --}}
 </div>
     <section class="blog-area section">
@@ -74,9 +75,11 @@
 
 
                                 <div style="background-color:#F1F3F5" class="blog-info">
-                                
-                                    <h2  class="st"><a href="{{ route('post.details',$post->slug) }}"><b>{{ $post->title }}</b></a></h2>
-
+                                <p style="color:darkgrey">
+                                    {{$post->categorie->name}}
+                                </p>
+                                    <h2  class="st"><a href="{{ URL::route('post.details',[$post->categorie->name,$post->slug]) }}"><b style="font-family: 'Montserrat', sans-serif;">{{ $post->title }}</b></a></h2>
+                                {{-- <p>{{$post->categorie->name}}</p> --}}
                                     {{-- <ul class="post-footer">
 
                                         <li>

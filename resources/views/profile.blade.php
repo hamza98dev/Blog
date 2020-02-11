@@ -35,7 +35,7 @@
 
                                         <div class="blog-info">
 
-                                            <h4 class="title"><a href="{{ route('post.details',$post->slug) }}"><b>{{ $post->title }}</b></a></h4>
+                                            <h4 class="title"><a href="{{ route('post.details',[$post->categorie->name,$post->slug]) }}"><b>{{ $post->title }}</b></a></h4>
 
                                             {{-- <ul class="post-footer">
 

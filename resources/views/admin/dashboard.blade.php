@@ -137,7 +137,7 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <a class="btn btn-sm btn-primary waves-effect" target="_blank" href="{{ route('post.details',$post->slug) }}">View</a>
+                                                <a class="btn btn-sm btn-primary waves-effect" target="_blank" href="{{ route('post.details',[$post->categorie->name,$post ->slug]) }}">View</a>
                                             </td>
                                         </tr>
                                     @endforeach

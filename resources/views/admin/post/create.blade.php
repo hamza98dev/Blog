@@ -27,6 +27,18 @@
                                         <label class="form-label">Post Title</label>
                                     </div>
                                 </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" id="title" class="form-control" name="title">
+                                        <label class="form-label">Meta Title</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" id="title" class="form-control" name="title">
+                                        <label class="form-label">Meta Description</label>
+                                    </div>
+                                </div>
 
                                 <div class="form-group">
                                     <label for="image">Featured Image</label>
