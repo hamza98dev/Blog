@@ -159,9 +159,15 @@ class PostController extends Controller
         
         
         $post = Post::where('slug',$plug)->approved()->published()->first();
+        // error_log(gettype($post));
              
-        $blogKey = 'blog_' . $post->id;
-
+             if ($post!==Null) {
+                $blogKey = 'blog_' . $post->id;
+                 
+             }else{
+                 return view('page404');
+             }
+      
         if (!Session::has($blogKey)) {
             $post->increment('view_count');
             Session::put($blogKey,1);

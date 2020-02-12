@@ -18,7 +18,9 @@ Route::get('{categorie}/{slug}','PostController@details')->name('post.details');
 Route::get('/categories','PostController@categorie');
 Route::get('/{slug}','PostController@postByCategory')->name('category.posts');
 Route::get('/tag/{slug}','PostController@postByTag')->name('tag.posts');
-
+Route::get('/404',function() {
+return view('page404');
+});
 Route::get('profile/{username}','AuthorController@profile')->name('author.profile');
 
 Route::post('subscriber','SubscriberController@store')->name('subscriber.store');
