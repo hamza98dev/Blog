@@ -21,7 +21,7 @@
     padding: 15px 0px;
     border-top: solid 3px #ccc;
     border-bottom: solid 3px #ccc;
-    color: #ff9606;
+    color: #1172A8;
 }
 .page-404 {
     float: left;
@@ -36,7 +36,7 @@
     text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
     -moz-text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
     -webkit-text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
-    color: #ff9606;
+    color: #1172A8;
 }
 .page-404 span {
     font-size: 48px;
@@ -50,7 +50,7 @@
     left: 0px;
     top: 50%;
     text-transform: uppercase;
-    color: #000;
+    color: #1172A8;
     line-height: 60px;
 }
 .error-404 > p {
@@ -83,12 +83,10 @@
     <div class="kode-content">
         <div class="container">
             <div class="error-404">
-                <h2>Whooos!!!</h2>
+               
                 <div class="page-404">
-                    <p>404</p>
-                    <span>The page can not be found</span>
-                </div>
-                <p>We could not found the page you are looking for. Please try another page and verify the URL you have entered.</p>
+                 <img width="500px" src="https://secteurprive.ma/assets/img/404.svg" alt="">
+                 <h2>Page Introuvable</h2>
              
             </div>   
         </div>   
