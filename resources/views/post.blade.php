@@ -80,11 +80,11 @@
                                         <div class="col-lg-8 col-md-8 m-auto">
                                             <div class="footer-section">
                             
-                                                <h4 class="title"><b>SUBSCRIBE TO OUR NEWSLETTER</b></h4>
+                                                <h4 class="title"><b>Inscrivez vous à la Newsletter</b></h4>
                                                 <div class="input-area">
                                                     <form method="POST" action="{{ route('subscriber.store') }}">
                                                         @csrf
-                                                        <input class="email-input" name="email" type="email" placeholder="Enter your email">
+                                                        <input class="email-input" name="email" type="email" placeholder="Entrez votre adresse mail">
                                                         <button class="submit-btn" type="submit"><i class="icon ion-ios-email-outline"></i></button>
                                                     </form>
                                                 </div>

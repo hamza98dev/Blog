@@ -37,56 +37,56 @@
         <ul class="list">
             <li class="header">MAIN NAVIGATION</li>
 
-            @if(Request::is('admin*'))
-                <li class="{{ Request::is('admin/dashboard') ? 'active' : '' }}">
+            @if(Request::is('sp/admin*'))
+                <li class="{{ Request::is('sp/admin/dashboard') ? 'active' : '' }}">
                     <a href="{{ route('admin.dashboard') }}">
                         <i class="material-icons">dashboard</i>
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li class="{{ Request::is('admin/tag*') ? 'active' : '' }}">
+                <li class="{{ Request::is('sp/admin/tag*') ? 'active' : '' }}">
                     <a href="{{ route('admin.tag.index') }}">
                         <i class="material-icons">label</i>
                         <span>Tag</span>
                     </a>
                 </li>
-                <li class="{{ Request::is('admin/category*') ? 'active' : '' }}">
+                <li class="{{ Request::is('sp/admin/category*') ? 'active' : '' }}">
                     <a href="{{ route('admin.category.index') }}">
                         <i class="material-icons">apps</i>
                         <span>Category</span>
                     </a>
                 </li>
-                <li class="{{ Request::is('admin/post*') ? 'active' : '' }}">
+                <li class="{{ Request::is('sp/admin/post*') ? 'active' : '' }}">
                     <a href="{{ route('admin.post.index') }}">
                         <i class="material-icons">library_books</i>
                         <span>Posts</span>
                     </a>
                 </li>
-                <li class="{{ Request::is('admin/pending/post') ? 'active' : '' }}">
+                <li class="{{ Request::is('sp/admin/pending/post') ? 'active' : '' }}">
                     <a href="{{ route('admin.post.pending') }}">
                         <i class="material-icons">library_books</i>
                         <span>Pending Posts</span>
                     </a>
                 </li>
-                <li class="{{ Request::is('admin/favorite') ? 'active' : '' }}">
+                <li class="{{ Request::is('sp/admin/favorite') ? 'active' : '' }}">
                     <a href="{{ route('admin.favorite.index') }}">
                         <i class="material-icons">favorite</i>
                         <span>Favorite Posts</span>
                     </a>
                 </li>
-                <li class="{{ Request::is('admin/comments') ? 'active' : '' }}">
+                <li class="{{ Request::is('sp/admin/comments') ? 'active' : '' }}">
                     <a href="{{ route('admin.comment.index') }}">
                         <i class="material-icons">comment</i>
                         <span>Comments</span>
                     </a>
                 </li>
-                <li class="{{ Request::is('admin/authors') ? 'active' : '' }}">
+                <li class="{{ Request::is('sp/admin/authors') ? 'active' : '' }}">
                     <a href="{{ route('admin.author.index') }}">
                         <i class="material-icons">account_circle</i>
                         <span>Authors</span>
                     </a>
                 </li>
-                <li class="{{ Request::is('admin/subscriber') ? 'active' : '' }}">
+                <li class="{{ Request::is('sp/admin/subscriber') ? 'active' : '' }}">
                     <a href="{{ route('admin.subscriber.index') }}">
                         <i class="material-icons">subscriptions</i>
                         <span>Subscribers</span>
@@ -94,7 +94,7 @@
                 </li>
                 <li class="header">System</li>
 
-                <li class="{{ Request::is('admin/settings') ? 'active' : '' }}">
+                <li class="{{ Request::is('sp/admin/settings') ? 'active' : '' }}">
                     <a href="{{ route('admin.settings') }}">
                         <i class="material-icons">settings</i>
                         <span>Settings</span>

@@ -6,7 +6,11 @@
         <div class="menu-nav-icon" data-nav-menu="#main-menu"><i class="ion-navicon"></i></div>
 
         <ul class="main-menu visible-on-click" id="main-menu">
-            <li><a href="{{ route('post.index') }}">Posts</a></li>
+            <li><a href="{{ route('post.index') }}">Accueil</a></li>
+            <li><a href="{{ url('/categories') }}">Catégories</a></li>
+            <li><a href="https://secteurprive.ma/appels-d-offres">Appels d'offre</a></li>
+            <li><a href="https://secteurprive.ma/contact">Contact</a></li>
+
             @guest
                 {{-- <li><a href="{{ route('login') }}">Login</a></li>
                 <li><a href="{{ route('register') }}">Register</a></li> --}}

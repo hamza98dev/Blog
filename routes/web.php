@@ -13,9 +13,10 @@
 
 Route::get('/', 'PostController@index')->name('home');
 Route::get('posts','PostController@index')->name('post.index');
-Route::get('post/{categorie}/{slug}','PostController@details')->name('post.details');
-
-Route::get('/category/{slug}','PostController@postByCategory')->name('category.posts');
+Route::get('/getmap','PostController@generatesitemap');
+Route::get('{categorie}/{slug}','PostController@details')->name('post.details');
+Route::get('/categories','PostController@categorie');
+Route::get('/{slug}','PostController@postByCategory')->name('category.posts');
 Route::get('/tag/{slug}','PostController@postByTag')->name('tag.posts');
 
 Route::get('profile/{username}','AuthorController@profile')->name('author.profile');
@@ -34,7 +35,7 @@ Route::group(['middleware'=>['auth']], function (){
 });
 
 
-Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin','middleware'=>['auth','admin']], function (){
+Route::group(['as'=>'admin.','prefix'=>'sp/admin','namespace'=>'Admin','middleware'=>['auth','admin']], function (){
         Route::get('/dashboard','DashboardController@index')->name('dashboard');
 
     Route::get('settings','SettingsController@index')->name('settings');
@@ -77,4 +78,8 @@ Route::group(['as'=>'author.','prefix'=>'author','namespace'=>'Author','middlewa
 View::composer('layouts.frontend.partial.footer',function ($view) {
     $categories = App\Category::all();
     $view->with('categories',$categories);
+});
+Route::get('/sitemap', function()
+{
+   return Response::view('sitemap')->header('Content-Type', 'application/xml');
 });

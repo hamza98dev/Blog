@@ -28,6 +28,10 @@
                 transition:0.7s ease-in-out;
                 transform:scale(1.02);  
             }
+            .blog-area .section{
+                background-color: #5198BF !important;
+            }
+           
     </style>
 @endpush
 
@@ -65,7 +69,7 @@
             <div class="row">
                 @forelse($posts as $post)
                     <div class="col-lg-4 col-md-6 animated zoomIn slow ">
-                        <div class="card h-100 animated">
+                        <div class="card h-100 ">
                             <div style="background-color:#F1F3F5" class="single-post post-style-1">
 
                                 <div  class="blog-image"><img style="height:200px" src="{{asset('storage/'.$post->image)}}" alt="{{ $post->title }}"></div>
@@ -75,9 +79,7 @@
 
 
                                 <div style="background-color:#F1F3F5" class="blog-info">
-                                <p style="color:darkgrey">
-                                    {{$post->meta_title}}
-                                </p>
+                               
                                     <h2  class="st"><a href="{{ URL::route('post.details',[$post->categorie->name,$post->slug]) }}"><b style="font-family: 'Montserrat', sans-serif;">{{ $post->title }}</b></a></h2>
                                 {{-- <p>{{$post->categorie->name}}</p> --}}
                                     {{-- <ul class="post-footer">

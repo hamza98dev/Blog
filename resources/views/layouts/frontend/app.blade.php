@@ -28,8 +28,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
     @stack('css')
+  
 </head>
-<body>
+<body style="background-color:##5198BF !important">
 
 @include('layouts.frontend.partial.header')
 

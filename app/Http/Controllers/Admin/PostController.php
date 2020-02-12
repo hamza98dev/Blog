@@ -153,28 +153,30 @@ class PostController extends Controller
         ]);
         $image = $request->file('image');
         $slug = str_slug($request->title);
-        if(isset($image))
-        {
-//            make unipue name for image
-            $currentDate = Carbon::now()->toDateString();
-            $imageName  = $slug.'-'.$currentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();
+//         if(isset($image))
+//         {
+// //            make unipue name for image
+//             $currentDate = Carbon::now()->toDateString();
+//             $imageName  = $slug.'-'.$currentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();
 
-            if(!Storage::disk('public')->exists('post'))
-            {
-                Storage::disk('public')->makeDirectory('post');
-            }
-//            delete old post image
-            if(Storage::disk('public')->exists('post/'.$post->image))
-            {
-                Storage::disk('public')->delete('post/'.$post->image);
-            }
-            $postImage = Image::make($image)->resize(1600,1066)->save();
-            Storage::disk('public')->put('post/'.$imageName,$postImage);
+//             if(!Storage::disk('public')->exists('post'))
+//             {
+//                 Storage::disk('public')->makeDirectory('post');
+//             }
+// //            delete old post image
+//             if(Storage::disk('public')->exists('post/'.$post->image))
+//             {
+//                 Storage::disk('public')->delete('post/'.$post->image);
+//             }
+//             $postImage = Image::make($image)->resize(1600,1066)->save();
+//             Storage::disk('public')->put('post/'.$imageName,$postImage);
 
-        } else {
-            $imageName = $post->image;
-        }
-
+//         } else {
+//             $imageName = $post->image;
+//         }
+if ($request->hasFile('image')) {
+    $imageName=$request->image->store('image');
+}
         $post->user_id = Auth::id();
         $post->title = $request->title;
         $post->slug = $slug;

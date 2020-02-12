@@ -10,6 +10,70 @@ use Illuminate\Support\Facades\Session;
 use DB;
 class PostController extends Controller
 {
+    public function generatesitemap(){
+        $posts=DB::table('posts')->get();
+        $dom = new \DOMDocument();
+
+                  $dom->encoding = 'utf-8';
+          
+                  $dom->xmlVersion = '1.0';
+          
+                  $dom->formatOutput = true;
+          
+                    $xml_file_name = 'sitemap.xml';
+                    $root = $dom->createElement('urlset');
+                   
+                    $url_node = $dom->createElement('url');
+                    $child_node_title = $dom->createElement('loc',"blog.secteurprive.ma");
+                    $url_node->appendChild($child_node_title);
+  
+                    $child_node_freq = $dom->createElement('changefreq','daily');
+                    $url_node->appendChild($child_node_freq);
+  
+                    $child_node_priority = $dom->createElement('priority',"1.0");
+                    $url_node->appendChild($child_node_priority);
+                    $root->appendChild($url_node);
+                    $dom->appendChild($root);
+
+
+                    $url_node = $dom->createElement('url');
+                    $child_node_title = $dom->createElement('loc',"blog.secteurprive.ma/posts");
+                    $url_node->appendChild($child_node_title);
+  
+                    $child_node_freq = $dom->createElement('changefreq','daily');
+                    $url_node->appendChild($child_node_freq);
+  
+                    $child_node_priority = $dom->createElement('priority',"1.0");
+                    $url_node->appendChild($child_node_priority);
+                    $root->appendChild($url_node);
+                    $dom->appendChild($root);
+        foreach($posts as $item){
+            $getcategory=DB::table('post_tag')->join('tags', 'tags.id','post_tag.tag_id')->select('tags.name')->where('post_id',$item->id)->first();
+              // array_push($item,["tag",$getid]);
+         
+                  $item->categorie=$getcategory;
+                  $link='blog.secteurprive.ma/'.$item->categorie->name.'/'.str_slug($item->slug);
+                  $url_node = $dom->createElement('url');
+                  $child_node_title = $dom->createElement('loc',$link);
+                  $url_node->appendChild($child_node_title);
+
+                  $child_node_freq = $dom->createElement('changefreq','daily');
+                  $url_node->appendChild($child_node_freq);
+
+                  $child_node_priority = $dom->createElement('priority',"1.0");
+                  $url_node->appendChild($child_node_priority);
+                  $root->appendChild($url_node);
+                  $dom->appendChild($root);
+
+
+
+
+          }
+        
+          $dom->save($xml_file_name);
+          echo "$xml_file_name has been successfully created";
+
+    }
 
     public function index()
     {
@@ -56,6 +120,11 @@ class PostController extends Controller
     {
         $category = Category::where('slug',$slug)->first();
         $posts = $category->posts()->approved()->published()->get();
+        foreach($posts as $item){
+            $getid=DB::table('post_tag')->join('tags', 'tags.id','post_tag.tag_id')->select('tags.name')->where('post_id',$item->id)->first();
+              // array_push($item,["tag",$getid]);
+                  $item["categorie"]=$getid;
+          }
         return view('category',compact('category','posts'));
     }
 
@@ -64,5 +133,9 @@ class PostController extends Controller
         $tag = Tag::where('slug',$slug)->first();
         $posts = $tag->posts()->approved()->published()->get();
         return view('tag',compact('tag','posts'));
+    }
+    public function categorie(){
+    $categories = DB::table('categories')->get();
+    return view('categories', compact('categories'));
     }
 }

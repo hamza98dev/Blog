@@ -9,7 +9,7 @@
         .slider {
             height: 400px;
             width: 100%;
-            background-image: url({{ Storage::disk('public')->url('storage/'.$category->image) }});
+            background-image:linear-gradient(45deg,#0F2027,#203A43,#2C5364);
             background-size: cover;
         }
         .favorite_posts{
@@ -20,7 +20,7 @@
 
 @section('content')
     <div class="slider display-table center-text">
-        <h1 class="title display-table-cell"><b>{{ $category->name }}</b></h1>
+        <h1 style="font-family: 'Montserrat', sans-serif;letter-spacing:10px"class="title display-table-cell"><b>{{ $category->name }}</b></h1>
     </div><!-- slider -->
 
     <section class="blog-area section">
@@ -38,29 +38,9 @@
 
                                     <div class="blog-info">
 
-                                        <h4 class="title"><a href="{{ route('post.details',$post->slug) }}"><b>{{ $post->title }}</b></a></h4>
+                                        <h4 class="title"><a href="{{ route('post.details',[$post->categorie->name,$post->slug]) }}"><b>{{ $post->title }}</b></a></h4>
 
-                                        <ul class="post-footer">
-
-                                            <li>
-                                                @guest
-                                                    <a href="javascript:void(0);" onclick="toastr.info('To add favorite list. You need to login first.','Info',{
-                                                        closeButton: true,
-                                                        progressBar: true,
-                                                    })"><i class="ion-heart"></i>{{ $post->favorite_to_users->count() }}</a>
-                                                @else
-                                                    <a href="javascript:void(0);" onclick="document.getElementById('favorite-form-{{ $post->id }}').submit();"
-                                                       class="{{ !Auth::user()->favorite_posts->where('pivot.post_id',$post->id)->count()  == 0 ? 'favorite_posts' : ''}}"><i class="ion-heart"></i>{{ $post->favorite_to_users->count() }}</a>
-
-                                                    <form id="favorite-form-{{ $post->id }}" method="POST" action="{{ route('post.favorite',$post->id) }}" style="display: none;">
-                                                        @csrf
-                                                    </form>
-                                                @endguest
-
-                                            </li>
-                                            <li><a href="#"><i class="ion-chatbubble"></i>{{ $post->comments->count() }}</a></li>
-                                            <li><a href="#"><i class="ion-eye"></i>{{ $post->view_count }}</a></li>
-                                        </ul>
+                                     
 
                                     </div><!-- blog-info -->
                                 </div><!-- single-post -->
