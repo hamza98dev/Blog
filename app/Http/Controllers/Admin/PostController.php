@@ -151,7 +151,13 @@ class PostController extends Controller
             'tags' => 'required',
             'body' => 'required',
         ]);
-        $image = $request->file('image');
+        // $image = $request->file('image');
+        if ($request->hasFile('image')) {
+            $imageName=$request->image->store('image');
+        }
+        else{
+            $imageName=$post->image;
+        }
         $slug = str_slug($request->title);
 //         if(isset($image))
 //         {
@@ -174,9 +180,7 @@ class PostController extends Controller
 //         } else {
 //             $imageName = $post->image;
 //         }
-if ($request->hasFile('image')) {
-    $imageName=$request->image->store('image');
-}
+
         $post->user_id = Auth::id();
         $post->title = $request->title;
         $post->slug = $slug;

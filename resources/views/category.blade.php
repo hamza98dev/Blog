@@ -20,7 +20,7 @@
 
 @section('content')
     <div class="slider display-table center-text">
-        <h1 style="font-family: 'Montserrat', sans-serif;letter-spacing:10px"class="title display-table-cell"><b>{{ $category->name }}</b></h1>
+        <h1 style="font-family: 'Montserrat', sans-serif;letter-spacing:15px"class="title display-table-cell"><b>{{ $category->name }}</b></h1>
     </div><!-- slider -->
 
     <section class="blog-area section">

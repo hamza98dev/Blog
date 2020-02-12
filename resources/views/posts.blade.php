@@ -79,7 +79,7 @@
 
 
                                 <div style="background-color:#F1F3F5" class="blog-info">
-                               
+                                    <a href="{{url('/getmap')}}">xml</a>
                                     <h2  class="st"><a href="{{ URL::route('post.details',[$post->categorie->name,$post->slug]) }}"><b style="font-family: 'Montserrat', sans-serif;">{{ $post->title }}</b></a></h2>
                                 {{-- <p>{{$post->categorie->name}}</p> --}}
                                     {{-- <ul class="post-footer">
