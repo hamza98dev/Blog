@@ -24,8 +24,12 @@ Route::get('profile/{username}','AuthorController@profile')->name('author.profil
 Route::post('subscriber','SubscriberController@store')->name('subscriber.store');
 
 Route::get('/search','SearchController@search')->name('search');
+Route::group(['prefix' =>'sp/admin'],function(){
+    Auth::routes();
+});
+   
 
-Auth::routes();
+
 Route::match(['get', 'post'], 'register', function(){
     return redirect('/');
 });

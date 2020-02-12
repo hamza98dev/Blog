@@ -46,14 +46,14 @@
                <div class="col-md-8 txt animated fadeIn slow">
                 <a href="{{ route('post.details',[$last->categorie->name,$last->slug]) }}">
 
-               <h2 class="" style="color:white;font-family: 'Montserrat', sans-serif;"> {{$last->title}}</h2><br>
+               <h1 class="" style="color:white;font-family: 'Montserrat', sans-serif;font-size:55px"> {{$last->title}}</h1><br>
                 </a>     
                <div class="row">
                         <div class="col-md-1 col-sm-1">
                             <img style="height:60px;width:65px" class="rounded-circle"  src="{{asset('storage/'.$publisher->image)}}" alt="photo">
                         </div>
                         <div class="col-md-6 col-sm-4 ml-2 ">
-                           <h4 style="color: white;font-weight: bold;font-family: 'Montserrat', sans-serif;">{{$publisher->name}}</h4>
+                           <p style="color: white;font-weight: bold;font-family: 'Montserrat', sans-serif;">{{$publisher->name}}</p>
                         <p style="color:white;font-family: 'Montserrat', sans-serif;">Published {{$last->created_at->diffForHumans()}}</p>
                         </div>
                     </div>
@@ -74,12 +74,12 @@
 
                                 <div  class="blog-image"><img style="height:200px" src="{{asset('storage/'.$post->image)}}" alt="{{ $post->title }}"></div>
 
-                                <a class="avatar" href="{{ route('author.profile',$post->user->username) }}"><img src="{{asset('storage/'.$publisher->image)}}" alt="Profile Image"></a>
+                                <a class="avatar" href="#"><img src="{{asset('storage/'.$publisher->image)}}" alt="Profile Image"></a>
                                 {{-- <a class="avatar" href="{{ route('author.profile',$post->user->username) }}"><img src="{{ Storage::disk('public')->url('profile/'.$post->user->image) }}" alt="Profile Image"></a> --}}
 
 
                                 <div style="background-color:#F1F3F5" class="blog-info">
-                                    <a href="{{url('/getmap')}}">xml</a>
+                                 
                                     <h2  class="st"><a href="{{ URL::route('post.details',[$post->categorie->name,$post->slug]) }}"><b style="font-family: 'Montserrat', sans-serif;">{{ $post->title }}</b></a></h2>
                                 {{-- <p>{{$post->categorie->name}}</p> --}}
                                     {{-- <ul class="post-footer">

@@ -60,7 +60,7 @@
 
                             </div><!-- post-info -->
 
-                            <h3 style="font-family: 'Montserrat', sans-serif;" class="title"><a href="#"><b>{{ $post->title }}</b></a></h3>
+                            <h1 style="font-family: 'Montserrat', sans-serif;font-size: 40px" class="title"><a href="#"><b>{{ $post->title }}</b></a></h1>
 
                             <div style="font-family: 'Montserrat', sans-serif;">
                                 {!! html_entity_decode($post->body) !!}
@@ -68,7 +68,7 @@
 
                             <ul class="tags">
                                 @foreach($post->tags as $tag)
-                                    <li><a href="{{ route('tag.posts',$tag->slug) }}">{{ $tag->name }}</a></li>
+                                    <li><a href="#">{{ $tag->name }}</a></li>
                                 @endforeach
                             </ul>
                             <hr>

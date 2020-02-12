@@ -21,7 +21,7 @@
 
             <div class="col-lg-3 col-md-6">
                 <div class="footer-section">
-                    <h4 class="title"><b>Plan du Site</b></h4>
+                    <h3 style="font-size:20px" class="title"><b>Plan du Site</b></h3>
                         <li class="mb-2"><a href="https://secteurprive.ma/">Accueil</a></li><br>
                         <li class="mb-2"><a href="https://secteurprive.ma/a-propos">A propos</a></li><br>
                         <li class="mb-2"><a href="https://secteurprive.ma/comment-ca-marche">Comment ça marche</a></li><br>
@@ -35,10 +35,10 @@
 
             <div class="col-lg-3 col-md-6">
                 <div class="footer-section">
-                    <h4 class="title"><b>Catégorie</b></h4>
+                    <h3 style="font-size:20px" class="title"><b>Catégorie</b></h3>
                     <ul>
                         @foreach($categories as $category)
-                            <li><a href="{{ route('category.posts',$category->slug) }}">{{ $category->name }}</a></li>
+                            <li><a href="{{ route('category.posts',$category->slug) }}">{{ $category->name }}</a></li><br>
                         @endforeach
                     </ul>
                 </div><!-- footer-section -->
@@ -47,7 +47,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="footer-section">
 
-                    <h4 class="title"><b>Inscrivez vous à la newsletter</b></h4>
+                    <h3 style="font-size:20px" class="title"><b>Inscrivez vous à la newsletter</b></h3>
                     <em style="font-size: 12px;">Recevez les dernières nouveauté concernant Secteurprive.ma</em>
                     <div class="input-area">
                         <form method="POST" action="{{ route('subscriber.store') }}">
