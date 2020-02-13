@@ -21,7 +21,7 @@
     padding: 15px 0px;
     border-top: solid 3px #ccc;
     border-bottom: solid 3px #ccc;
-    color: #1172A8;
+    color: #6C63FF;
 }
 .page-404 {
     float: left;
