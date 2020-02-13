@@ -200,13 +200,19 @@ class PostController extends Controller
     public function postByCategory($slug)
     {
         $category = Category::where('slug',$slug)->first();
-        $posts = $category->posts()->approved()->published()->get();
-        foreach($posts as $item){
-            $getid=DB::table('post_tag')->join('tags', 'tags.id','post_tag.tag_id')->select('tags.name')->where('post_id',$item->id)->first();
-              // array_push($item,["tag",$getid]);
-                  $item["categorie"]=$getid;
-          }
-        return view('category',compact('category','posts'));
+        if ($category !== NULL ) {
+            $posts = $category->posts()->approved()->published()->get();
+            foreach($posts as $item){
+                $getid=DB::table('post_tag')->join('tags', 'tags.id','post_tag.tag_id')->select('tags.name')->where('post_id',$item->id)->first();
+                  // array_push($item,["tag",$getid]);
+                      $item["categorie"]=$getid;
+              }
+            return view('category',compact('category','posts'));
+        }else{
+            return view('page404');
+        }
+        
+       
     }
 
     public function postByTag($slug)
