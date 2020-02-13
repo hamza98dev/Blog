@@ -145,7 +145,12 @@ class PostController extends Controller
         $last["categorie"]=$gettaglast;
         $id=$last->user_id;    
         $publisher=DB::table('users')->find($id);
-     
+        $posts = Post::latest()->approved()->published()->paginate(6);
+        foreach($posts as $item){
+          $getid=DB::table('post_tag')->join('tags', 'tags.id','post_tag.tag_id')->select('tags.name')->where('post_id',$item->id)->first();
+            // array_push($item,["tag",$getid]);
+                $item["categorie"]=$getid;
+        }
    
         return view('posts',compact('posts','last','publisher'));
     }else{

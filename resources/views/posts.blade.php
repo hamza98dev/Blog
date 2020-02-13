@@ -47,17 +47,8 @@
 <div class="col-md-8 txt animated fadeIn slow">
     <a href="#">
 
-   <h1 class="" style="color:white;font-family: 'Montserrat', sans-serif;font-size:55px">No Post Found</h1><br>
+   <h1 class="" style="color:white;font-family: 'Montserrat', sans-serif;font-size:55px;text-align:center">No Post Found</h1><br>
     </a>     
-   <div class="row">
-            <div class="col-md-1 col-sm-1">
-                <img style="height:60px;width:65px" class="rounded-circle"  src="" alt="photo">
-            </div>
-            <div class="col-md-6 col-sm-4 ml-2 ">
-               <p style="color: white;font-weight: bold;font-family: 'Montserrat', sans-serif;">no user</p>
-            <p style="color:white;font-family: 'Montserrat', sans-serif;">Published </p>
-            </div>
-        </div>
    </div>
    <img style="object-fit:fit;height:92vh;width:100%;position:absolute;filter: brightness(25%);" src="https://image.freepik.com/free-vector/no-data-concept-illustration_114360-536.jpg" alt="">
 
